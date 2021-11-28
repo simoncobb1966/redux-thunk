@@ -1,0 +1,35 @@
+.container {
+    display:flex;
+    width: 100;
+    border: 2px solid green;
+}
+.tasks {
+    border: 2px solid black;
+    width:50%;
+}
+.users {
+    border: 2px solid red;
+    width:50%;
+}
+.userDiv {
+    padding: 8px;
+    display: flex;
+}
+.userDiv:nth-child(odd) {
+    background-color: lightgray;
+}
+.userDiv:hover {
+    background-color: aquamarine;
+}
+.userDiv img {
+    border-radius: 150px;
+    border: 2px solid black;
+    height: 52px;
+    margin: 0px 8px;
+width:52px;
+}
+.userDiv img:hover {
+    border-radius: 150px;
+    border: 2px solid red;
+    margin-left: 8px;
+}
