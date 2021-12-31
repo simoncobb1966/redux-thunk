@@ -1,3 +1,6 @@
+31/12/2021  - added Axios
+            - added class for user model
+
 1) Install the following:-
 npx create-react-app first-app
 npm install redux   (for redux-core package)

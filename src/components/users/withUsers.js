@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {addUser, fetchUsers, updateUser} from '../../redux/actions/actionsUsers';
+import {addUser, deleteUser, updateUser, fetchUsers} from '../../redux/actions/Users/index';
 
 export function withUsers(WrappedComponent) {
 
@@ -8,28 +8,17 @@ export function withUsers(WrappedComponent) {
 
   const mapDispatchToProps = {
   funcAddUser: addUser,
+  funcDeleteUser: deleteUser,
   funcFetchUsers: fetchUsers,
   funcUpdateUser: updateUser,
   };
 
-const sortUsers = (array) => {
-  return { ...array, users:array.users.sort(function(a, b){
-    var nameA=a.firstName.toLowerCase(), nameB=b.firstName.toLowerCase()
-    if (nameA < nameB) //sort string ascending
-        return -1 
-    if (nameA > nameB)
-        return 1
-    return 0 //default return value (no sorting)
-})    
-}
-}
-
   const mapStateToProps = (state, ownProps) => {
     return {
       ...ownProps,
-      users: sortUsers(state.reducerUsers)
- 
-      
+      users: state.reducerUsers.users,
+      isLoading: state.reducerUsers.isLoading,
+      error: state.reducerUsers.error,
     };
   };
 
