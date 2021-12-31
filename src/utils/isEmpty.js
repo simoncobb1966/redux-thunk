@@ -1,4 +1,4 @@
-import isNullOrUndefined from './isNullOrUndefined';
+import isNullOrUndefined from "./isNullOrUndefined";
 
 /**
  * Returns whether a value matches the following criteria for empty:
@@ -11,49 +11,47 @@ import isNullOrUndefined from './isNullOrUndefined';
  *   - zero-value number
  *   - boolean false
  *
- * @param {*} mixedData Data to check for emptiness
+ * @param {*} value Data to check for emptiness
  * @returns {bool} Is the data empty?
  */
-const isEmpty=(mixedData) => {
+const isEmpty = (value) => {
   // Data is empty if null or undefined
-  if (true === isNullOrUndefined(mixedData)) {
+  if (true === isNullOrUndefined(value)) {
     return true;
   }
 
   // If data is a number, then empty if 0
-  if ('number' === typeof mixedData) {
-    return 0 === mixedData;
+  if ("number" === typeof value) {
+    return 0 === value;
   }
 
   // If data boolean, then empty if false
-  if ('boolean' === typeof mixedData) {
-    return false === mixedData;
+  if ("boolean" === typeof value) {
+    return false === value;
   }
 
-  if ('string' === typeof mixedData) {
-    return 0 === mixedData.length || !mixedData.trim();
+  if ("string" === typeof value) {
+    return 0 === value.length || !value.trim();
   }
 
   // If data has some length, eg. a string or array, then empty if has no
   // elements
-  if ('undefined' !== typeof mixedData.length) {
-    return 0 === mixedData.length;
+  if ("undefined" !== typeof value.length) {
+    return 0 === value.length;
   }
 
   // If data hasa name property not empty then it's not empty
   // (added for files)
-  if ('string' === typeof mixedData.name && '' !== mixedData.name) {
+  if ("string" === typeof value.name && "" !== value.name) {
     return false;
   }
 
-  /* eslint-disable no-restricted-syntax */
   // If data has an enumerable property, then it's not empty
-  for (const i in mixedData) {
-    if (Object.prototype.hasOwnProperty.call(mixedData, i)) {
+  for (const i in value) {
+    if (Object.prototype.hasOwnProperty.call(value, i)) {
       return false;
     }
   }
-  /* eslint-enable no-restricted-syntax */
 
   return true;
 };
