@@ -12,6 +12,9 @@ npm install redux-thunk
 2) To run:-
 npm run start
 
+3) To install:-
+npm install
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
